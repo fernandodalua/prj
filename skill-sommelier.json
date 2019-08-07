@@ -1,0 +1,980 @@
+{
+  "name": "sommelier",
+  "intents": [
+    {
+      "intent": "vinho",
+      "examples": [
+        {
+          "text": "Qual vinho devo comprar?"
+        },
+        {
+          "text": "Gostaria de uma sugestão de vinho"
+        },
+        {
+          "text": "Qual o vinho adequado para um jantar ?"
+        },
+        {
+          "text": "Preciso de um vinho"
+        },
+        {
+          "text": "Qual é o vinho que melhor combina?"
+        },
+        {
+          "text": "Quero um vinho"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "pedindo_comida",
+      "examples": [
+        {
+          "text": "O que devo fazer para comer ?"
+        },
+        {
+          "text": "Vou dar um jantar em casa."
+        },
+        {
+          "text": "O que você recomenda para este vinho ?"
+        },
+        {
+          "text": "Qual prato deve acompanhar ?"
+        },
+        {
+          "text": "Qual é o prato que você recomenda?"
+        },
+        {
+          "text": "Tenho um vinho"
+        },
+        {
+          "text": "Que prato preparar ?"
+        },
+        {
+          "text": "Que prato devo preparar?"
+        },
+        {
+          "text": "Vou cozinhar, qual prato devo preparar ?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "tipo_vinho",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "branco",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "rose",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "bourdeaux",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "château",
+          "synonyms": [
+            "chateau"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "chardonnay",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "tinto",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nacionalidade",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "chileno",
+          "synonyms": [
+            "chile"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "argentino",
+          "synonyms": [
+            "argentina"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "francês",
+          "synonyms": [
+            "frança"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "português",
+          "synonyms": [
+            "portugal"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "comidas",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "queijo",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "queijos curados",
+          "synonyms": [
+            "curado",
+            "queijo curado"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "bacalhau",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "carnes de caça",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "peixes ou frutos do mar",
+          "synonyms": [
+            "peixes",
+            "frutos do mar",
+            "peixe",
+            "fruto do mar"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "carnes vermelhas e massas",
+          "synonyms": [
+            "massas",
+            "carnes vermelhas",
+            "carne vermelha",
+            "massa"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "queijos brancos",
+          "synonyms": [
+            "queijo branco"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "nome_vinho",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "haut fourat",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "cadus",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "dory colheita",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "cefiro",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "alentejano montado",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "joão portugal ramos",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Les Violettes",
+          "synonyms": [
+            "les violettes"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "language": "pt-br",
+  "metadata": {
+    "api_version": {
+      "major_version": "v1",
+      "minor_version": "2018-09-20"
+    }
+  },
+  "skill_id": "bc2a5a66-bfe9-4c7b-b51c-bb73d89b2f66",
+  "description": "",
+  "dialog_nodes": [
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_13_1562471376070",
+      "event_name": "focus",
+      "dialog_node": "handler_15_1562471376070",
+      "previous_sibling": "handler_14_1562471376070"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_13_1562471376070",
+      "context": {
+        "nacionalidade": "@nacionalidade"
+      },
+      "conditions": "@nacionalidade",
+      "event_name": "input",
+      "dialog_node": "handler_14_1562471376070"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1562471283278",
+      "event_name": "focus",
+      "dialog_node": "handler_9_1562471283278",
+      "previous_sibling": "handler_8_1562471283278"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_7_1562471283278",
+      "event_name": "input",
+      "dialog_node": "handler_8_1562471283278"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1562471361093",
+      "event_name": "focus",
+      "dialog_node": "handler_12_1562471361093",
+      "previous_sibling": "handler_11_1562471361093"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_10_1562471361093",
+      "context": {
+        "nome_vinho": "@nome_vinho"
+      },
+      "conditions": "@nome_vinho",
+      "event_name": "input",
+      "dialog_node": "handler_11_1562471361093"
+    },
+    {
+      "type": "slot",
+      "parent": "node_12_1562469595779",
+      "variable": "$comidas",
+      "dialog_node": "slot_2_1562472223094",
+      "previous_sibling": "slot_13_1562471376070"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_12_1562469595779",
+      "metadata": {},
+      "variable": "$nacionalidade",
+      "dialog_node": "slot_13_1562471376070",
+      "previous_sibling": "slot_10_1562471361093"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_12_1562469595779",
+      "metadata": {},
+      "variable": "$nome_vinho",
+      "dialog_node": "slot_10_1562471361093",
+      "previous_sibling": "slot_13_1562469631206"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_12_1562469595779",
+      "metadata": {},
+      "variable": "$tipo_vinho",
+      "dialog_node": "slot_13_1562469631206",
+      "previous_sibling": "node_3_1562484333803"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_12_1562469595779",
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "$tipo_vinho",
+      "dialog_node": "node_3_1562484333803",
+      "digress_out": "allow_all",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": "Qual o nome do vinho ?"
+      },
+      "parent": "slot_4_1562484364080",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_6_1562484364080",
+      "previous_sibling": "handler_5_1562484364080"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_4_1562484364080",
+      "context": {
+        "nome_vinho": "@nome_vinho"
+      },
+      "conditions": "@nome_vinho",
+      "event_name": "input",
+      "dialog_node": "handler_5_1562484364080"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_2_1562472223094",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1562472223094",
+      "previous_sibling": "handler_3_1562472223094"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_2_1562472223094",
+      "context": {
+        "comidas": "@comidas"
+      },
+      "conditions": "@comidas",
+      "event_name": "input",
+      "dialog_node": "handler_3_1562472223094"
+    },
+    {
+      "type": "standard",
+      "title": "(1178414)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo um Vinho Chileno Rosé CÉFIRO Garrafa 750ml (1178414)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562486185763",
+      "metadata": {},
+      "conditions": "$comidas == \"carnes vermelhas e massas\" && $tipo_vinho == \"rose\"",
+      "dialog_node": "node_32_1562485158492",
+      "previous_sibling": "node_30_1562485109089"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1562486185763",
+      "variable": "$tipo_vinho",
+      "dialog_node": "slot_2_1562486210417",
+      "previous_sibling": "node_33_1562485177529"
+    },
+    {
+      "type": "standard",
+      "title": "(1178431)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro um Vinho Argentino Tinto CADUS Signature Series Petit Verdot Garrafa 750ml (1178431)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562486185763",
+      "metadata": {},
+      "conditions": "$comidas == \"carnes vermelhas e massas\" && $tipo_vinho == \"tinto\"",
+      "dialog_node": "node_33_1562485177529",
+      "previous_sibling": "node_32_1562485158492"
+    },
+    {
+      "type": "standard",
+      "title": "(1178413)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro um Vinho Chileno Branco Chardonnay Garrafa 750ml (1178413)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562486185763",
+      "metadata": {},
+      "conditions": "$comidas == \"carnes vermelhas e massas\" && $tipo_vinho == \"branco\"",
+      "dialog_node": "node_30_1562485109089"
+    },
+    {
+      "type": "frame",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "$comidas",
+      "dialog_node": "node_1_1562486185763",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_7_1562473106817",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "(1164669)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo um Vinho Francês Tinto LES VIOLETTES Côtes Du Rhône-Villages Garrafa 750ml (1164669)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {},
+      "conditions": "$comidas == \"queijos curados\"",
+      "dialog_node": "node_11_1562475078470",
+      "previous_sibling": "node_10_1562474521721"
+    },
+    {
+      "type": "slot",
+      "parent": "node_1_1562421394960",
+      "variable": "$comidas",
+      "dialog_node": "slot_2_1562421484589",
+      "previous_sibling": "node_1_1562486185763"
+    },
+    {
+      "type": "standard",
+      "title": "(1178409)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro um Vinho Português Branco DORY COLHEITA Garrafa 750ml (1178409)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {},
+      "conditions": "$comidas == \"bacalhau\"",
+      "dialog_node": "node_10_1562474521721",
+      "previous_sibling": "node_12_1562475391809"
+    },
+    {
+      "type": "standard",
+      "title": "(1178408)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro um Vinho Português Branco ALENTEJANO MONTADO Garrafa 750ml (1178408)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {},
+      "conditions": "$comidas == \"queijos brancos\"",
+      "dialog_node": "node_8_1562473633548",
+      "previous_sibling": "node_11_1562475078470"
+    },
+    {
+      "type": "standard",
+      "title": "(1178407)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo um Vinho Português Branco JOÃO PORTUGAL RAMOS Alvarinho Garrafa 750ml (1178407)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {},
+      "conditions": "$comidas == \"peixes ou frutos do mar\"",
+      "dialog_node": "node_7_1562473106817",
+      "previous_sibling": "node_8_1562473633548"
+    },
+    {
+      "type": "standard",
+      "title": "(1164670)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo um Vinho Francês Tinto Château HAUT FOURAT Bordeaux Garrafa 750ml (1164670)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1562421394960",
+      "metadata": {},
+      "conditions": "$comidas == \"carnes de caça\"",
+      "dialog_node": "node_12_1562475391809"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": "Qual é o nome do vinho ?"
+      },
+      "parent": "slot_13_1562469631206",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_15_1562469631206",
+      "previous_sibling": "handler_14_1562469631206"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_13_1562469631206",
+      "context": {
+        "tipo_vinho": "@tipo_vinho"
+      },
+      "metadata": {},
+      "conditions": "@tipo_vinho",
+      "event_name": "input",
+      "dialog_node": "handler_14_1562469631206"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": "Qual o tipo de vinho ?"
+      },
+      "parent": "slot_2_1562486210417",
+      "event_name": "focus",
+      "dialog_node": "handler_4_1562486210417",
+      "previous_sibling": "handler_3_1562486210417"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_2_1562486210417",
+      "context": {
+        "tipo_vinho": "@tipo_vinho"
+      },
+      "conditions": "@tipo_vinho",
+      "event_name": "input",
+      "dialog_node": "handler_3_1562486210417"
+    },
+    {
+      "type": "standard",
+      "title": "(1287868)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Carnes vermelhas e massas para este vinho (1287868)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"branco\" || $tipo_vinho == \"chardonnay\"",
+      "dialog_node": "node_13_1562476449553",
+      "previous_sibling": "node_16_1562476603571"
+    },
+    {
+      "type": "standard",
+      "title": "(1287870)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Queijos Brancos (1287870)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"branco\" && $nome_vinho == \"alentejano montado\"",
+      "dialog_node": "node_15_1562476589764",
+      "previous_sibling": "node_14_1562476576132"
+    },
+    {
+      "type": "standard",
+      "title": "(1287873)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo Queijos Curados (1287873)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"tinto\" && $nome_vinho == \"Les Violettes\"",
+      "dialog_node": "node_18_1562476628106",
+      "previous_sibling": "node_17_1562476614907"
+    },
+    {
+      "type": "standard",
+      "title": "(1265678)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Carnes de Caça (1265678)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"tinto\" && $nome_vinho == \"haut fourat\"",
+      "dialog_node": "node_19_1562476635371",
+      "previous_sibling": "node_18_1562476628106"
+    },
+    {
+      "type": "standard",
+      "title": "(1287868)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Carnes vermelhas e massas para este vinho (1287868)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$nacionalidade == \"argentino\"",
+      "dialog_node": "node_5_1562478754080",
+      "previous_sibling": "node_19_1562476635371"
+    },
+    {
+      "type": "slot",
+      "parent": "node_3_1562484333803",
+      "variable": "$nome_vinho",
+      "dialog_node": "slot_4_1562484364080",
+      "previous_sibling": "node_5_1562478754080"
+    },
+    {
+      "type": "standard",
+      "title": "(1287868)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Carnes vermelhas e massas para este vinho (1287868)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"tinto\" && $nome_vinho == \"cadus\"",
+      "dialog_node": "node_17_1562476614907",
+      "previous_sibling": "node_13_1562476449553"
+    },
+    {
+      "type": "standard",
+      "title": "(1287869)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo Bacalhau (1287869)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"branco\" && $nome_vinho == \"dory colheita\"",
+      "dialog_node": "node_16_1562476603571",
+      "previous_sibling": "node_15_1562476589764"
+    },
+    {
+      "type": "standard",
+      "title": "(1287871)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Recomendo Peixes ou Frutos do Mar (1287871)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {},
+      "conditions": "$tipo_vinho == \"branco\" && $nome_vinho == \"joao portugal ramos\"",
+      "dialog_node": "node_14_1562476576132",
+      "previous_sibling": "node_6_1562471259186"
+    },
+    {
+      "type": "standard",
+      "title": "(1287868)",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Sugiro Carnes vermelhas e massas para este vinho (1287868)"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_3_1562484333803",
+      "metadata": {
+        "fallback": "leave"
+      },
+      "conditions": "$tipo_vinho == \"rose\" && $nome_vinho == \"cefiro\"",
+      "dialog_node": "node_6_1562471259186",
+      "digress_out": "allow_all"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": "Qual prato você tem em mente ?"
+      },
+      "parent": "slot_2_1562421484589",
+      "metadata": {},
+      "event_name": "focus",
+      "dialog_node": "handler_4_1562421484589",
+      "previous_sibling": "handler_3_1562421484589"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_2_1562421484589",
+      "context": {
+        "comidas": "@comidas"
+      },
+      "conditions": "@comidas",
+      "event_name": "input",
+      "dialog_node": "handler_3_1562421484589"
+    },
+    {
+      "type": "slot",
+      "parent": "node_6_1562471259186",
+      "dialog_node": "slot_7_1562471283278"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_12_1562469595779"
+    },
+    {
+      "type": "frame",
+      "title": "Pedindo comida",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#pedindo_comida",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_12_1562469595779",
+      "digress_out": "allow_all",
+      "previous_sibling": "node_1_1562421394960",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "frame",
+      "title": "Pedindo vinho",
+      "output": {
+        "generic": []
+      },
+      "metadata": {
+        "fallback": "leave"
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#vinho",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_1_1562421394960",
+      "digress_out": "allow_all",
+      "previous_sibling": "Bem-vindo",
+      "digress_out_slots": "not_allowed"
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. Como posso te ajudar?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "metadata": {},
+      "conditions": "welcome",
+      "dialog_node": "Bem-vindo"
+    }
+  ],
+  "workspace_id": "bc2a5a66-bfe9-4c7b-b51c-bb73d89b2f66",
+  "counterexamples": [],
+  "system_settings": {
+    "tooling": {
+      "store_generic_responses": true
+    }
+  },
+  "learning_opt_out": false,
+  "status": "Available"
+}
